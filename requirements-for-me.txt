@@ -1,0 +1,16 @@
+*/
+Project steps to complete...
+To complete this project, you must do the following:
+
+Write code that passes all the tests in the Qualified assessment in this lesson.
+Write code that passes all of the requirements outlined below, and submit your GitHub repo link to the Thinkful team in the next lesson.
+
+Requirements to pass
+For your project to pass, all of the following statements must be true. These criteria are reflected in the rubric in the following lesson.
+
+All tests are passing in Qualified. CHECK
+The project does not include any single letter variables. CHECK
+The project makes at least one use of an arrow function. CHECK
+The project makes at least one use of each of the following native array methods: find(), filter(), map(), and reduce(). CHECK
+The project employs at least one helper function, which helps support the tested functions. CHECK
+The project uses at least two of the following JavaScript features: the ternary operator, the spread operator, object shorthand, array or object destructuring, and for or in loops. CHECK
