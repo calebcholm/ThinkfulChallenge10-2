@@ -17,7 +17,8 @@ const getBooksBorrowedCount = (books) => {
   return total;
 };
 
-const getMostCommonGenres = (books) => {
+//create helper function for getMostCommonGenres()
+const genresCounted = (books) => {
   //create array and push genres to it
   let genres = [];
   books.map((book) => {
@@ -29,16 +30,20 @@ const getMostCommonGenres = (books) => {
   let counted = {};
   for (let i = 0; i < genres.length; i++) {
     counted[genres[i]] = (counted[genres[i]] || 0) + 1;
-  };
+  }
+  return counted;
+};
+
+const getMostCommonGenres = (books) => {
   //create new array to push object to
   let topGenresCounted = [];
   //loop through keys and values and add 'name' and 'count'
-  for (let [key, value] of Object.entries(counted)) {
+  for (let [key, value] of Object.entries(genresCounted(books))) {
     topGenresCounted.push({
-      'name': key,
-      'count': value
+      name: key,
+      count: value,
     });
-  };
+  }
   //sort by count
   topGenresCounted.sort((genreA, genreB) => genreB.count - genreA.count);
   //return only top 5
@@ -50,7 +55,7 @@ const getMostPopularBooks = (books) => {
   let borrow = [];
   //map and push objects with name and count keys
   books.map((book) => {
-    borrow.push({ "name": book.title, "count": book.borrows.length });
+    borrow.push({ name: book.title, count: book.borrows.length });
   });
   //sort by count
   borrow.sort((bookA, bookB) => bookB.count - bookA.count);
@@ -79,8 +84,9 @@ const getMostPopularAuthors = (books, authors) => {
     totalAuthorCount.push(authorCount);
   });
   //sort and slice to top 5
-  console.log(totalAuthorCount)
-  return totalAuthorCount.sort((nameA, nameB) => nameB.count - nameA.count).slice(0, 5);
+  return totalAuthorCount
+    .sort((nameA, nameB) => nameB.count - nameA.count)
+    .slice(0, 5);
 };
 
 module.exports = {
