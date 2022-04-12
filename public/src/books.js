@@ -7,7 +7,7 @@ const partitionBooksByBorrowedStatus = (books) => {
   let notReturned = [];
   let returned = [];
   let total = [];
-  books.forEach((book) => {
+  books.filter((book) => {
     let bookReturned = book.borrows[0].returned;
     if (bookReturned) {
       notReturned.push(book);
